@@ -3,9 +3,9 @@ import Featured from "../../components/featured/Featured"
 import List from "../../components/list/List"
 import Navbar from "../../components/navbar/Navbar"
 import "./home.scss"
-import axios from "axios"
 import { useSelector } from "react-redux"
 import Footer from "../../components/footer/Footer"
+import { publicRequest } from "../../requestMethod"
 
 const Home = ({type}) => {
     const [lists, setLists] = useState([])
@@ -14,7 +14,7 @@ const Home = ({type}) => {
     useEffect(() => {
         const getRandomList = async () =>{
             try {
-                const res = await axios.get(`http://localhost:8800/api/lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
+                const res = await publicRequest.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
                     {
                         headers: {
                             token:
@@ -37,7 +37,7 @@ const Home = ({type}) => {
             {lists.map(list => (
                 <List list={list} key={list._id}/>
             ))}
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }

@@ -5,8 +5,8 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined'
 import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined'
 import { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
-import axios from "axios"
 import { useSelector } from "react-redux"
+import { publicRequest } from "../../requestMethod"
 
 const ListItem = ({index, item}) => {
     const [isHovered, setIsHovered] = useState(false)
@@ -15,7 +15,7 @@ const ListItem = ({index, item}) => {
     useEffect(() => {
         const getMovies = async()=>{
             try {
-                const res = await axios.get("http://localhost:8800/api/movies/find/" + item,
+                const res = await publicRequest.get("movies/find/" + item,
                     {
                         headers: {
                             token:

@@ -3,8 +3,8 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { useState, useEffect } from "react"
 import {Link} from "react-router-dom"
-import axios from "axios"
 import { useSelector } from "react-redux"
+import { publicRequest } from "../../requestMethod"
 
 const Featured = ({type, setGenre}) => {
     const [content, setContent] = useState({})
@@ -12,7 +12,7 @@ const Featured = ({type, setGenre}) => {
     useEffect(() => {
         const getRandomContent = async()=>{
             try {
-                const res = await axios.get(`http://localhost:8800/api/movies/random?type=${type}`,
+                const res = await publicRequest.get(`movies/random?type=${type}`,
                 {
                     headers: {
                         token:

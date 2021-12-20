@@ -2,8 +2,8 @@ import "./watch.scss"
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'
 import { useLocation, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import axios from "axios"
 import { useSelector } from "react-redux"
+import { publicRequest } from "../../requestMethod"
 
 const Watch = () => {
     const location = useLocation()
@@ -13,7 +13,7 @@ const Watch = () => {
     useEffect(() => {
         const getUrlVideo = async ()=>{
             try {
-                const res = await axios.get("http://localhost:8800/api/movies/find/" + id, 
+                const res = await publicRequest.get("movies/find/" + id, 
                     {
                         headers: {
                             token:
