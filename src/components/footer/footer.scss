@@ -1,0 +1,43 @@
+.footer{
+    margin-top: 20px;
+    padding: 80px 50px;
+    display: flex;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    .left{
+        flex: 1.5;
+        display: flex;
+        flex-direction: column;
+        
+        img{
+            width: 150px;
+            height: 50px;
+        }
+        span{
+            margin-top: 20px;
+        }
+        .containerIcon{
+            margin:20px 0;
+            display: flex;
+            .icon{
+                margin-right: 15px;
+            }
+        }
+    }
+    .right{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        .title{
+            margin-bottom: 20px;
+        }
+
+        div{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
